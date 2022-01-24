@@ -13,19 +13,19 @@ Implement one pass of the FM bipartition algorithm for hypergraphs on CPU.
    * `benchmarks`: text-based hypergraph benchmarks
      * e.g., example_1.txt
      ```bash
-        9
+        10
         8
-        n0 a6 a8
-        n1 a7 a4 a1 a4 a7
-        n2 a9 a8 a8 a0
-        n3 a8 a6 a8 a7 a0
-        n4 a7 a7 a10 a2 a0
-        n5 a7 a2 a2
-        n6 a0 a10 a4 a9 a6
-        n7 a9 a8
+        n0 a9 a8
+        n1 a9 a1
+        n2 a7 a1 a4 a0 a5
+        n3 a10 a5
+        n4 a10 a8
+        n5 a8 a1 a3
+        n6 a8 a4 a1 a6 a10
+        n7 a6 a7
         0.35
      ```
-     * The first row contains the number of nodes (|V|), e.g., here is 9.
+     * The first row contains the number of nodes (|V|), e.g., here is 10.
      * The second row contains the number of nets/hyperedges (|E|), e.g., here is 8.
      * There are |E| rows, e.g. here is 8, starting from the third row. Each row follows the format:
      ```bash
@@ -38,10 +38,10 @@ Implement one pass of the FM bipartition algorithm for hypergraphs on CPU.
       * `output/reference`: contains ground truth solutions to the example benchmarks given to you.
       * The format of the bipartition solution file is as follows,
       ```bash
-          8 6 5 4 4 4 4 4 5 6 5 5 5 5 6 7 8
-          a0 a1 a11 a12 a13 a14 a15 a17 a9
-          a16 a2 a3 a4 a5 a7 a8
-          4
+          6 4 4 3 3 3 4 5 6 5 6
+          a0 a1 a3 a4 a8 a9
+          a10 a5 a6 a7
+          3
           0
           0
       ```
