@@ -31,7 +31,7 @@ Implement one pass of the FM bipartition algorithm for hypergraphs on CPU.
      ```bash
      NET_NAME NODE_NAME_1 NODE_NAME_2 ... NODE_NAME_K
      ```
-     E.g., `n2 a2 a5 a6` describs a `3-pin` net named `n2` which connects three nodes, i.e., `a2`, `a5`, and `a6`.
+     E.g., `n5 a8 a1 a3` describs a `3-pin` net named `n5` which connects three nodes, i.e., `a8`, `a1`, and `a3`.
      * The last row is the minimum cut ratio constraint `r`. A legal bipartition [P0, P1] should satisfy `min(|P0|, |P1|)/(|V|) >= r - epsilon`, where the margin epsilon = 1e-5.
     * `output`: directory to dump out your partition solution.
       * For a student with EID: `xxxxx`, all solution files will be dumped to `output/xxxxx/`. The solution file will have the same file name as the benchmark file, e.g., `output/xxxxx/example_1.txt`
