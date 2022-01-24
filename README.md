@@ -1,5 +1,5 @@
-# Coding Assignment 1: FM Partition
-Implement one pass of the FM partition algorithm for hypergraphs on CPU.
+# Coding Assignment 1: Fiduccia-Mattheyses (FM) BiPartition
+Implement one pass of the FM bipartition algorithm for hypergraphs on CPU.
 
 # Recommended Python Environment
  * Python >= 3.6.6
@@ -36,6 +36,22 @@ Implement one pass of the FM partition algorithm for hypergraphs on CPU.
     * `output`: directory to dump out your partition solution.
       * For a student with EID: `xxxxx`, all solution files will be dumped to `output/xxxxx/`. The solution file will have the same file name as the benchmark file, e.g., `output/xxxxx/example_1.txt`
       * `output/reference`: contains ground truth solutions to the example benchmarks given to you.
+      * The format of the bipartition solution file is as follows,
+      ```bash
+          8 6 5 4 4 4 4 4 5 6 5 5 5 5 6 7 8
+          a0 a1 a11 a12 a13 a14 a15 a17 a9
+          a16 a2 a3 a4 a5 a7 a8
+          4
+          0
+          0
+      ```
+      * The first row is the cut size list which contains the initial cut size and the cut size after each move.
+      * The second and third rows record the FIRST best bipartition solution with the minimum cut size.
+        * The second row contains the node names in the first partition (P0) (order of the nodes does not matter).
+        * The third row contains the node names in the second partition (P1) (order of the nodes does not matter).
+      * The fourth row contains the min cut size corresponding to the best solution
+      * The fifth row is the average runtime in second (Can ignore this, just put a 0 there)
+      * The last row is the used memory (Can ignore this, just put a 0 there)
     * `student_impl`: directory to store algorithm implementations.
       * `__init__.py`: initialize package.
       * `p1_partition_base.py`: basic class of the FM partition solver `FM_Partition_Base`. Please do not change any code in this file.
@@ -68,8 +84,7 @@ Implement one pass of the FM partition algorithm for hypergraphs on CPU.
         os.mkdir(output_root)
 
     output_path = os.path.join(output_root, os.path.basename(benchmark_path))
-    min_cut_ratio = 0.35
-    solver = FM_Partition(min_cut_ratio=min_cut_ratio)
+    solver = FM_Partition()
     solver.read_graph(benchmark_path)
     solution = solver.solve()
     profiling = (0, 0) # ignore runtime and memory for now
