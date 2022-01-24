@@ -1,0 +1,11 @@
+9
+8
+n0 a6 a8
+n1 a7 a4 a1 a4 a7
+n2 a9 a8 a8 a0
+n3 a8 a6 a8 a7 a0
+n4 a7 a7 a10 a2 a0
+n5 a7 a2 a2
+n6 a0 a10 a4 a9 a6
+n7 a9 a8
+0.35
