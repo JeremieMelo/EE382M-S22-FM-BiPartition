@@ -7,8 +7,11 @@ LastEditTime: 2022-01-21 20:21:53
 """
 import time
 from typing import List, Tuple
-
-import memory_profiler as mp
+try:
+    import memory_profiler as mp
+except:
+    print(f"Fail to import memory_profiler")
+    mp = None
 import numpy as np
 
 #############################################
@@ -137,11 +140,13 @@ class FM_Partition_Base(object):
             end = time.time()
             runtime += end - start
         runtime /= n_runs
-
-        start_mem = mp.memory_usage(max_usage=True)
-        res = mp.memory_usage(proc=(self.solve, []), max_usage=True, retval=True)
-        max_mem = res[0]
-        used_mem = max_mem - start_mem
+        if mp is None:
+            used_mem = 0
+        else:
+            start_mem = mp.memory_usage(max_usage=True)
+            res = mp.memory_usage(proc=(self.solve, []), max_usage=True, retval=True)
+            max_mem = res[0]
+            used_mem = max_mem - start_mem
         return runtime, used_mem
 
     # Please do not override the methods
