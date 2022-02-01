@@ -4,9 +4,9 @@ Implement one pass of the FM bipartition algorithm for hypergraphs on CPU.
 # Recommended Python Environment
  * Python >= 3.6.6
  * Numpy >= 1.17.0
-   * Install with this command: `pip3 install numpy`
+   * Install with this command: `pip3 install numpy --user`
  * memory_profiler >= 0.60.0
-   * Install with this command: `pip3 install memory-profiler psutil`
+   * Install with this command: `pip3 install memory-profiler psutil --user`
 
 # Codebase Structure
  - FM_Partition
