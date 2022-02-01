@@ -120,6 +120,8 @@ class FM_Partition_Base(object):
 
     # Please do not override the method
     def compute_cut_size(self, sol: Tuple[List[int], List[int]]) -> int:
+        if isinstance(list(sol[0])[0], str):
+            sol = ([self.node_name2node_map[n] for n in sol[0]], [self.node_name2node_map[n] for n in sol[1]])
         net2node = self.net2node_map
         p0 = set(sol[0])
 
